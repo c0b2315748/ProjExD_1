@@ -18,19 +18,32 @@ def main():
 
     tmr = 0
     while True:
+        mx = 0
+        my = 0
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
         if key_lst:
-            kk_rct.move_ip((-1, 0))
+            #kk_rct.move_ip((-1, 0))
+            mx = -1
+            #my = 0
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1)) # こうかとんの縦座標を―1する
+            #mx = 0          # こうかとんの縦座標を―1する
+            my = -1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))
+            #mx = 0
+            my = +1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
+            mx = -2
+            #my = 0
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
+            mx = 2
+            #my = 0
+        
+        kk_rct.move_ip((mx, my))
+
+        #for i in [pg.K_UP,pg.K_DOWN,pg.K_LEFT,pg.K_RIGHT]:
+        #if key_lst[]:
         
             
         x = -(tmr%3200)
